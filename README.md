@@ -14,6 +14,21 @@ Welcome to my Assembly Bootloader project! This project demonstrates the creatio
 
 The bootloader is a very basic program written in assembly that, when executed, will display the text "Bruce" on the screen. This is useful for understanding how low-level interactions with hardware can be accomplished directly through assembly language
 
+### Compilation and Execution Flow
+1. **Compile the Bootloader**: We use NASM, the Netwide Assembler, to compile the assembly code in boot.asm into a raw binary format:
+```bash
+nasm boot.asm 
+```
+2. **Write Binary to Image**: The binary file needs to be written to a disk image (a.img) to be loaded by the Bochs emulator. This is done using a C program:
+```bash
+gcc main.c -o main
+./main
+```
+3. **Run in Bochs**: With the a.img containing the bootloader, we run it using the Bochs emulator
+```bash
+bochs -q -f bochsrc
+```
+
 ## Setup and Requirements
 
 To run this project, you will need:
